@@ -27,15 +27,15 @@ namespace GradeBook.GradeBooks
             {
                 return 'A';
             }
-            else if(averageGrade >= 0.60 && averageGrade <= 0.80)
+            else if(averageGrade >= 0.60 && averageGrade < 0.80)
             {
                 return 'B';
             }
-            else if(averageGrade >= 0.40 && averageGrade <= 0.60)
+            else if(averageGrade >= 0.40 && averageGrade < 0.60)
             {
                 return 'C';
             }
-            else if(averageGrade >= 0.20 && averageGrade <= 0.40)
+            else if(averageGrade >= 0.20 && averageGrade < 0.40)
             {
                 return 'D';
             }
