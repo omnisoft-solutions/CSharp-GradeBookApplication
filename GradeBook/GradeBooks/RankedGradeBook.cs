@@ -23,26 +23,18 @@ namespace GradeBook.GradeBooks
                 throw new InvalidOperationException();
             }
 
-            if(averageGrade >= 0.80)
-            {
+            var threshold = (int)Math.Ceiling(Students.Count * 0.2);
+            var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
+
+            if (averageGrade >= grades[threshold - 1])
                 return 'A';
-            }
-            else if(averageGrade >= 0.60 && averageGrade < 0.80)
-            {
+            if (averageGrade >= grades[(threshold * 2) - 1])
                 return 'B';
-            }
-            else if(averageGrade >= 0.40 && averageGrade < 0.60)
-            {
+            if (averageGrade >= grades[(threshold * 3) - 1])
                 return 'C';
-            }
-            else if(averageGrade >= 0.20 && averageGrade < 0.40)
-            {
+            if (averageGrade >= grades[(threshold * 4) - 1])
                 return 'D';
-            }
-            else
-            {
-                return 'F';
-            }
+            return 'F';
         }
     }
 }
